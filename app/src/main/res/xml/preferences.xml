@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="animation_enabled"
+        android:summary="Choose if to use an animation"
+        android:title="Use animation" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="sound_enabled"
+        android:summary="Enable sound effects"
+        android:title="Sound" />
+
+    <ListPreference
+        android:defaultValue="1"
+        android:entries="@array/cellImageArray"
+        android:entryValues="@array/cellImageValues"
+        android:key="cell_image"
+        android:summary="Select the form of cells"
+        android:title="Form of cells" />
+
+    <Preference
+        android:key="about"
+        android:title="About">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="com.alignthecells.activities.AboutActivity"
+            android:targetPackage="com.alignthecells" />
+    </Preference>
+
+</PreferenceScreen>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListPreference
+        android:defaultValue="4"
+        android:entries="@array/sizeArray"
+        android:entryValues="@array/sizeValues"
+        android:key="board_size"
+        android:summary="Select the size of the board"
+        android:title="Size" />
+
+    <ListPreference
+        android:defaultValue="0"
+        android:entries="@array/gameTypeArray"
+        android:entryValues="@array/gameTypeValues"
+        android:key="game_type"
+        android:summary="For advanced players only"
+        android:title="Game mode" />
+
+</PreferenceScreen>

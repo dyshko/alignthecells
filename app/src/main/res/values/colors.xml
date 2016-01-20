@@ -1,0 +1,26 @@
+<resources>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="black">#000000</color>
+    <color name="green">#00AA00</color>
+    <color name="white">#FFFFFF</color>
+    <color name="blue">#2E64FE</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="red">#FF0000</color>
+    <color name="orange">#FFBF00</color>
+    <color name="purple">#DF01D7</color>
+    <color name="white_background">#FFFFFF</color>
+
+    <color name="text_color">#000000</color>
+    <color name="background_color">#ffffff</color>
+    <color name="cell_color_0">#ea4436</color>
+    <color name="cell_color_1">#4db74a</color>
+    <color name="cell_color_2">#4386f4</color>
+    <color name="cell_color_3">#fcd20b</color>
+    <color name="cell_color_4">#d345ff</color>
+    <color name="cell_color_5">#ff2fc0</color>
+    <color name="cell_color_6">#bbe843</color>
+    <color name="cell_color_7">#000000</color>
+
+
+</resources>

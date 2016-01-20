@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <ImageView
+        android:id="@+id/start_view_image1"
+        android:layout_width="50pt"
+        android:layout_height="80pt"
+        android:layout_centerInParent="true"
+        android:src="@drawable/touch_hand" />
+
+    <com.alignthecells.views.MyTextView
+        android:id="@+id/start_view_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start_view_image1"
+        android:gravity="center"
+        android:text="@string/touch_text"
+        android:textSize="18pt" />
+
+    <!--    <com.square.views.MyTextView
+            android:id = "@+id/start_view_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text = "Align the cells of the same color in lines"
+            android:textSize="10pt"/>-->
+
+    <!--    <ImageView
+            android:id = "@+id/start_view_image1"
+            android:contentDescription="Touch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/touch_hand"
+            />       android:layout_below="@+id/start_view_text1" -->
+    <!--    <com.square.views.MyTextView
+            android:id = "@+id/start_view_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text = "Touch to play"
+            android:layout_below="@+id/start_view_image1"
+            android:layout_centerInParent="true"
+            android:textSize="10pt"
+            />-->
+
+</RelativeLayout>

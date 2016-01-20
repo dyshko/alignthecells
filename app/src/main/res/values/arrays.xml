@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cellImageArray">
+        <item> Square </item>
+        <item> Rounded square </item>
+        <item> Circle </item>
+    </string-array>
+
+    <string-array name="cellImageValues">
+        <item> 0 </item>
+        <item> 1 </item>
+        <item> 2 </item>
+    </string-array>
+
+    <string-array name="sizeArray">
+        <item> 3 x 3</item>
+        <item> 4 x 4</item>
+        <item> 5 x 5</item>
+        <item> 6 x 6</item>
+        <item> 7 x 7</item>
+    </string-array>
+    <string-array name="sizeValues">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="gameTypeArray">
+        <item> Simple (Tor) </item>
+        <item> Mode 1 (Klein) </item>
+        <item> Mode 2 (Sphere) </item>
+        <item> Mode 3 (Projective) </item>
+        <!--  <item> Klein Bottle* </item>
+          <item> Sphere* </item>
+          <item> Double direct </item>
+          <item> Double reversed </item>
+          <item> Triple direct </item>
+          <item> Triple reversed </item>-->
+    </string-array>
+    <string-array name="gameTypeValues">
+        <item> 0</item>
+        <item> 1</item>
+        <item> 2</item>
+        <item> 3</item>
+        <!--
+               <item> 4</item>
+                <item> 5</item>
+                <item> 6</item>
+                <item> 7</item>
+                <item> 8</item>
+                <item> 9</item>-->
+    </string-array>
+</resources>

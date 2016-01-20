@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_game_mode"
+        android:title="Game mode" />
+
+    <item
+        android:id="@+id/menu_info"
+        android:title="@string/info_button_text" />
+
+    <item
+        android:id="@+id/menu_settings"
+        android:title="@string/preference_button_text" />
+
+</menu>
