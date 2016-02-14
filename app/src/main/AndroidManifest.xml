@@ -26,8 +26,7 @@
         <activity
             android:name=".activities.AboutActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/InfoTheme">
-        </activity>
+            android:theme="@style/InfoTheme"/>
         <activity
             android:name=".activities.GamePreferenceActivity"
             android:screenOrientation="portrait" />

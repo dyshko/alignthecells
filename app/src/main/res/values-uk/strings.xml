@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Align the cells</string>
+    <string name="t1_text">
+        Розташуйте клітинки одного кольору в ряди або колонки.
+    </string>
+    <string name="t2_text">
+        Щоб зсунути рядок або колонку - проведіть по екрану в потрібному напрямку
+    </string>
+    <string name="preference_button_text">Налаштування</string>
+    <string name="info_button_text">Як грати</string>
+    <string name="shuffle_button_text">Перемішати</string>
+    <string name="about_text">Разроблено Сергієм Дишко. Моя адреса:
+        <a href="mailto:s.v.dyshko@gmail.com?subject=Align the cells">s.v.dyshko@gmail.com</a></string>
+    <string name="touch_text">Торкніться, щоб почати гру</string>
+    <string name="hint_text">Розташуйте клітинки одного кольору в ряди або колонки (торкніться, щоб сховати)</string>
+    <string name="about_t1">Про додаток</string>
+    <string name="rate_text">Оцініть</string>
+    <string name="anim_text_1">Анімація</string>
+    <string name="sound_text_2">Звук</string>
+    <string name="form_text_2">Форма клітинок</string>
+    <string name="size_text_2">Кількість клітинок</string>
+    <string name="type_text_1">Тільки для досвідчених гравців</string>
+    <string name="type_text_2">Режим гри</string>
+    <string name="menu_t1">Тип гри</string>
+    <string name="win_t1">"Вирішено за "</string>
+    <string name="win_t2">Вітаємо!</string>
+    <string name="win_t3">" та "</string>
+    <string name="win_t4">" кроків!"</string>
+    <string name="win_t5">ОК</string>
+    <string name="exit1">Бажаєте вийти?</string>
+    <string name="no">Ні</string>
+    <string name="yes">Так</string>
+    <string name="sec">" сек"</string>
+</resources>

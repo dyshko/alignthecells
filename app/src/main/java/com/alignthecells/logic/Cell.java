@@ -26,33 +26,20 @@ import com.alignthecells.utils.GamePreferences;
  */
 public class Cell {
 
-    public enum IMAGE_TYPE {SQUARE, SQUARE_ROUNDED, CIRCLE}
-
-    private Context context;
-
-    private int sideLength;
-
     int color;
-
     int value;
-
     Point pos;
-
     Point destination;
-
     Rect rect;
-
     Rect canonticalRect;
-
     //WAY FOR 1 MILISECOND
     float speedX = 0;
     float speedY = 0;
-
     long timeAtDestination = -1;
-
+    private Context context;
+    private int sideLength;
     private Bitmap bitmap;
     private Paint paint;
-
     public Cell(Context context, int color, int value, int sideLength) {
         this.color = color;
         this.value = value;
@@ -63,22 +50,20 @@ public class Cell {
         this.sideLength = sideLength;
         setColorAndShape();
         rect = new Rect();
-        canonticalRect = new Rect(0, 0 ,sideLength, sideLength);
+        canonticalRect = new Rect(0, 0, sideLength, sideLength);
     }
 
     //delatTime in miliseconds
-    public void setMovement(int destinationX, int destinationY, long currentTime, long deltaTime)
-    {
+    public void setMovement(int destinationX, int destinationY, long currentTime, long deltaTime) {
         //just an instant move
-        if (deltaTime<=0) deltaTime = 1;
-        speedX = (destinationX - pos.x)/(float)deltaTime;
-        speedY = (destinationY - pos.y)/(float)deltaTime;
+        if (deltaTime <= 0) deltaTime = 1;
+        speedX = (destinationX - pos.x) / (float) deltaTime;
+        speedY = (destinationY - pos.y) / (float) deltaTime;
         this.destination.set(destinationX, destinationY);
         this.timeAtDestination = currentTime + deltaTime;
     }
 
-    public int getValue()
-    {
+    public int getValue() {
         return value;
     }
 
@@ -136,8 +121,7 @@ public class Cell {
         bitmap = Bitmap.createScaledBitmap(bitmap, sideLength, sideLength, true);
     }
 
-    public void setPosition(int x, int y)
-    {
+    public void setPosition(int x, int y) {
         pos.x = x;
         pos.y = y;
     }
@@ -147,35 +131,33 @@ public class Cell {
         destination.y = y;
     }
 
-    public void offset(long currentTime)
-    {
+    public void offset(long currentTime) {
         long deltaTime = timeAtDestination - currentTime;
-        if (deltaTime <= 0)
-        {
+        if (deltaTime <= 0) {
             if (!isStatic()) {
                 pos.set(destination.x, destination.y);
                 speedX = 0f;
                 speedY = 0f;
                 timeAtDestination = -1;
             }
-        }
-        else
+        } else
             pos.set(destination.x - (int) (speedX * deltaTime),
                     destination.y - (int) (speedY * deltaTime));
     }
 
     protected void draw(Canvas canvas, long currentTime) {
-        rect.set(pos.x, pos.y, pos.x+sideLength, pos.y+sideLength);
-        if (bitmap!=null) {
+        rect.set(pos.x, pos.y, pos.x + sideLength, pos.y + sideLength);
+        if (bitmap != null) {
             canvas.drawBitmap(bitmap, canonticalRect, rect, paint);
         }
         offset(currentTime);
     }
 
-    public boolean isStatic()
-    {
-        return (speedX==0)&&(speedY==0);
+    public boolean isStatic() {
+        return (speedX == 0) && (speedY == 0);
     }
+
+    public enum IMAGE_TYPE {SQUARE, SQUARE_ROUNDED, CIRCLE}
 
 
 }

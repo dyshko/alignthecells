@@ -31,15 +31,14 @@ public class SquareBoardGameActivity extends MainActivity {
     public RelativeLayout contentView;
 
     public RelativeLayout gameArea;
-
-    MyTextView hintView;
     public TimerHandler timerHandler;
+    MyTextView hintView;
     int screenWidth;
     int screenHeight;
     private BoardView boardView;
     private ImageButton shuffleButton;
     private ImageButton optionsButton;
-//    private ImageButton gameTypeButton;
+    //    private ImageButton gameTypeButton;
     private PopupMenu popup;
 
     private boolean startViewIsVisible = true;
@@ -103,7 +102,7 @@ public class SquareBoardGameActivity extends MainActivity {
     }
 
     private void createBoard() {
-        boardSideLength = (int) (0.90 * min(screenWidth, screenHeight));
+        boardSideLength = (int) (0.9f * min(screenWidth, screenHeight));
         BoardViewParams bvp = new BoardViewParams(8, boardSideLength, GamePreferences.boardSize);
         //Adjasting the parameters to be integral
         boardSideLength = bvp.sideLength;
@@ -137,15 +136,15 @@ public class SquareBoardGameActivity extends MainActivity {
     public void onBackPressed() {
         //super.onBackPressed();
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Do you want to quit?");
+        alertDialogBuilder.setTitle(R.string.exit1);
         alertDialogBuilder
                 .setCancelable(true)
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                     }
                 })
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                         if (!startViewIsVisible) {
@@ -156,9 +155,8 @@ public class SquareBoardGameActivity extends MainActivity {
                                 public void run() {
                                     instance.finish();
                                 }
-                            }, (long)(1.5f*GamePreferences.animationDuration));
-                        }
-                        else instance.finish();
+                            }, (long) (1.5f * GamePreferences.animationDuration));
+                        } else instance.finish();
                     }
                 });
 
@@ -171,13 +169,12 @@ public class SquareBoardGameActivity extends MainActivity {
     public void showGameDialog() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
-        alertDialogBuilder.setTitle("Congratulations!");
+        alertDialogBuilder.setTitle(R.string.win_t2);
         alertDialogBuilder
-                .setMessage("Solved in " + timerHandler.getText() +
-                        " and " + boardView.shifts + " moves!")
-          //      "Best: "+GamePreferences.getBestTime(this) + " and " + GamePreferences.getBestMoves(this)+ " moves.")
+                .setMessage(getString(R.string.win_t1) + timerHandler.getText(getApplicationContext()) +
+                        getString(R.string.win_t3) + boardView.shifts + getString(R.string.win_t4))
                 .setCancelable(false)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.win_t5, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                         shiftBoardRandom();
@@ -202,24 +199,27 @@ public class SquareBoardGameActivity extends MainActivity {
     }
 
     private void createStartView() {
-        startTextView = (RelativeLayout)getLayoutInflater().inflate(R.layout.start_layout, gameArea, false);
+        startTextView = (RelativeLayout) getLayoutInflater().inflate(R.layout.start_layout, gameArea, false);
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) startTextView.getLayoutParams();
         params.addRule(RelativeLayout.CENTER_IN_PARENT);
-        gameArea.addView(startTextView,params);//,params);
+        gameArea.addView(startTextView, params);//,params);
 
         startTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startGame();
                 deleteStartView();
-                hintView.setVisibility(View.VISIBLE);
-                hintView.setEnabled(true);
-                hintView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        v.setVisibility(View.GONE);
-                    }
-                });
+                if (GamePreferences.hintVisible) {
+                    hintView.setVisibility(View.VISIBLE);
+                    hintView.setEnabled(true);
+                    hintView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            v.setVisibility(View.GONE);
+                            GamePreferences.setHintVisibility(getApplicationContext(), false);
+                        }
+                    });
+                }
             }
         });
         startViewIsVisible = true;
@@ -233,8 +233,7 @@ public class SquareBoardGameActivity extends MainActivity {
         boardView.enableTouch();
     }
 
-    public void showPopupMenu()
-    {
+    public void showPopupMenu() {
         popup.show();
     }
 

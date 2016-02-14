@@ -13,23 +13,20 @@ import com.alignthecells.logic.SquareBoard;
  */
 public class GamePreferences {
 
+    public static final int NORMAL_ANIMATION_DURATION = 200;
     public static SquareBoard.GAME_MODE mode;
 
+    //  public static boolean animationType2;
+    public static boolean hintVisible;
     public static int boardSize;
-
-  //  public static boolean animationType2;
-
     public static int gameModeInt;
-
     public static Cell.IMAGE_TYPE imageType;
-
-    public static final int NORMAL_ANIMATION_DURATION = 200;
     public static int animationDuration;
 
     public static boolean animationEnabled;
     public static int boardSizePosition;
     public static boolean soundEnabled;
-    public static  boolean firstRun;
+    public static boolean firstRun;
 
     public static int highscore;
 
@@ -39,14 +36,15 @@ public class GamePreferences {
     }
 
     public static void updateValues(SharedPreferences SP) {
-     //
+        //
+        hintVisible = SP.getBoolean("hint_visible",true);
 
         firstRun = SP.getBoolean("firstrun", true);
 
         soundEnabled = SP.getBoolean("sound_enabled", true);
         SoundManager.setSound(soundEnabled);
 
-      //  animationType2 = SP.getBoolean("animation_type", true);
+        //  animationType2 = SP.getBoolean("animation_type", true);
 
         boardSizePosition = Integer.valueOf(SP.getString("board_size", "4")) - 3;
         boardSize = boardSizePosition + 3;
@@ -108,11 +106,16 @@ public class GamePreferences {
         }
     }
 
-    public static void setFirstRun(Context context, boolean value)
-    {
+    public static void setFirstRun(Context context, boolean value) {
         firstRun = value;
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(context);
         SP.edit().putBoolean("firstrun", value).apply();
+    }
+
+    public static void setHintVisibility(Context context, boolean value) {
+        hintVisible = value;
+        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(context);
+        SP.edit().putBoolean("hint_visible", value).apply();
     }
 
 /*    public static int getHighScore(Context context) {
@@ -128,23 +131,23 @@ public class GamePreferences {
 
     public static int getBestMoves(Context context) {
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(context);
-        return Integer.valueOf(SP.getString("bestmoves_"+gameModeInt+"_"+boardSize, "0"));
+        return Integer.valueOf(SP.getString("bestmoves_" + gameModeInt + "_" + boardSize, "0"));
     }
 
     public static void setBestMoves(Context context, int value) {
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(context);
         highscore = value;
-        SP.edit().putString("bestmoves_"+gameModeInt+"_"+boardSize, String.valueOf(value)).apply();
+        SP.edit().putString("bestmoves_" + gameModeInt + "_" + boardSize, String.valueOf(value)).apply();
     }
 
     public static int getBestTime(Context context) {
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(context);
-        return Integer.valueOf(SP.getString("besttime_"+gameModeInt+"_"+boardSize, "0"));
+        return Integer.valueOf(SP.getString("besttime_" + gameModeInt + "_" + boardSize, "0"));
     }
 
     public static void setBestTime(Context context, int value) {
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(context);
         highscore = value;
-        SP.edit().putString("besttime_"+gameModeInt+"_"+boardSize, String.valueOf(value)).apply();
+        SP.edit().putString("besttime_" + gameModeInt + "_" + boardSize, String.valueOf(value)).apply();
     }
 }

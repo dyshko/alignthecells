@@ -6,26 +6,31 @@
     <CheckBoxPreference
         android:defaultValue="true"
         android:key="animation_enabled"
-        android:summary="Choose if to use an animation"
-        android:title="Use animation" />
+        android:title="@string/anim_text_1" />
 
     <CheckBoxPreference
         android:defaultValue="true"
         android:key="sound_enabled"
-        android:summary="Enable sound effects"
-        android:title="Sound" />
+        android:title="@string/sound_text_2" />
 
     <ListPreference
         android:defaultValue="1"
         android:entries="@array/cellImageArray"
         android:entryValues="@array/cellImageValues"
         android:key="cell_image"
-        android:summary="Select the form of cells"
-        android:title="Form of cells" />
+        android:title="@string/form_text_2" />
+
+    <Preference
+        android:key="rateit"
+        android:title="@string/rate_text">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://play.google.com/store/apps/details?id=com.alignthecells" />
+    </Preference>
 
     <Preference
         android:key="about"
-        android:title="About">
+        android:title="@string/about_t1">
         <intent
             android:action="android.intent.action.MAIN"
             android:targetClass="com.alignthecells.activities.AboutActivity"

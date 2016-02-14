@@ -22,7 +22,6 @@ public class BoardDrawing {
     private ArrayList<Cell> dummyCells;
 
 
-
     public BoardDrawing(Context context, BoardViewParams params) {
 
         this.params = params;
@@ -39,7 +38,7 @@ public class BoardDrawing {
     private void fillBoard() {
         for (int i = 0; i < params.size; i++)
             for (int j = 0; j < params.size; j++) {
-                int val = j + params.size*i;
+                int val = j + params.size * i;
                 Cell cell = new Cell(context, boardIndexToColor(val), val, params.cellSideLength);
                 setCellPosition(cell, -1, -1);
                 setCellDestination(cell, -1, -1);
@@ -55,7 +54,6 @@ public class BoardDrawing {
                 }*/
             }
     }
-
 
 
     public int getCellLeftMargin(int col) {
@@ -78,8 +76,7 @@ public class BoardDrawing {
         return null;
     }*/
 
-    public ArrayList<Cell> getCells()
-    {
+    public ArrayList<Cell> getCells() {
         return cells;
     }
 
@@ -136,21 +133,20 @@ public class BoardDrawing {
         }
     }
 
-    public void setRandomPosMovementOutside(Random r, boolean pos_true, long currentTime, long duration)
-    {
-        for (Cell cell: cells) {
+    public void setRandomPosMovementOutside(Random r, boolean pos_true, long currentTime, long duration) {
+        for (Cell cell : cells) {
             int rrow = 0, rcol = 0;
-            while ((rrow >= 0)&&(rrow < params.size) && (rcol >= 0)&&(rcol < params.size)) {
-                rrow = -params.size + r.nextInt(3*params.size);
-                rcol = -params.size + r.nextInt(3*params.size);
+            while ((rrow >= 0) && (rrow < params.size) && (rcol >= 0) && (rcol < params.size)) {
+                rrow = -params.size + r.nextInt(3 * params.size);
+                rcol = -params.size + r.nextInt(3 * params.size);
             }
             if (pos_true) setCellPosition(cell, rrow, rcol);
-            else cell.setMovement(getCellLeftMargin(rcol), getCellTopMargin(rrow), currentTime, duration);
+            else
+                cell.setMovement(getCellLeftMargin(rcol), getCellTopMargin(rrow), currentTime, duration);
         }
     }
 
-    public void draw(Canvas canvas, long currentTime)
-    {
+    public void draw(Canvas canvas, long currentTime) {
         for (Cell cell : cells)
             cell.draw(canvas, currentTime);
     }

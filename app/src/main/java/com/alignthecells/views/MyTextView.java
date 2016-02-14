@@ -27,8 +27,7 @@ public class MyTextView extends TextView {
         setProperties();
     }
 
-    public void setProperties()
-    {
+    public void setProperties() {
         setTextColor(getResources().getColor(R.color.text_color));
     }
 

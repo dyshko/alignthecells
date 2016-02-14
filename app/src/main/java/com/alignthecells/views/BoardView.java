@@ -27,27 +27,19 @@ import java.util.Random;
  */
 public class BoardView extends RelativeLayout {
 
-    public enum SCORE_TYPE {SHIFT, ALIGN, SOLVED, CLEAR, START}
-
+    public static final int delayBeforeDialog = 0;
+    public static final int waitAfterWinDuration = 500;
+    public int shifts = 0;
     Rect rectCanvasBounds;
-
     private BoardViewParams params;
-
     private BoardDrawing boardDrawing;
-
     private SquareBoardGameActivity activity;
     private SquareBoard squareBoard;
     private View.OnTouchListener onTouchListener = new BoardViewTouchListener(this);
 
-    public static final int delayBeforeDialog = 0;
-
-    public static final int waitAfterWinDuration = 500;
-
 //    public int score = 0;
 
     //public int dejaAligned = 0;
-
-    public int shifts = 0;
 
     public BoardView(Context context, BoardViewParams params) {
         super(context);
@@ -79,7 +71,7 @@ public class BoardView extends RelativeLayout {
     }
 
     public boolean isSolved() {
-        return (getNumberOfAligned()== params.size);
+        return (getNumberOfAligned() == params.size);
     /*    int[][] a = new int[params.size][params.size];
         for (int i = 0; i < params.size; i++)
             for (int j = 0; j < params.size; j++)
@@ -106,9 +98,8 @@ public class BoardView extends RelativeLayout {
         return tempr || tempc;*/
     }
 
-
     private int getNumberOfAligned() {
-        int res = 2*params.size;
+        int res = 2 * params.size;
 
         int[][] a = new int[params.size][params.size];
         for (int i = 0; i < params.size; i++)
@@ -119,7 +110,7 @@ public class BoardView extends RelativeLayout {
         for (int i = 0; i < params.size; i++) {
             for (int j = 0; j < params.size; j++) {
                 if (a[i][j] != a[i][0]) {
-                    res-=1;
+                    res -= 1;
                     break;
                 }
             }
@@ -128,7 +119,7 @@ public class BoardView extends RelativeLayout {
         for (int j = 0; j < params.size; j++) {
             for (int i = 0; i < params.size; i++) {
                 if (a[i][j] != a[0][j]) {
-                    res-=1;
+                    res -= 1;
                     break;
                 }
             }
@@ -138,20 +129,20 @@ public class BoardView extends RelativeLayout {
 
     public void shift(Shift initShift) {
         int waitTime = GamePreferences.animationDuration;
-        shifts+=1;
+        shifts += 1;
 
-    //    activity.movesTextView.setText(String.valueOf(shifts));
+        //    activity.movesTextView.setText(String.valueOf(shifts));
 
         squareBoard.shift(initShift);
         boardDrawing.setupShift(squareBoard, GameTime.getTime(), waitTime);
-  //      updateScore(SCORE_TYPE.SHIFT);
+        //      updateScore(SCORE_TYPE.SHIFT);
         int r = getNumberOfAligned();
    /*     if (r>dejaAligned) {
             updateScore(SCORE_TYPE.ALIGN);
             dejaAligned = r;
         }*/
         if (r == params.size) {
-        //    updateScore(SCORE_TYPE.SOLVED);
+            //    updateScore(SCORE_TYPE.SOLVED);
             waitTime += waitAfterWinDuration + delayBeforeDialog + 1;
             activity.stopTimer();
             Handler handler = new Handler();
@@ -167,55 +158,55 @@ public class BoardView extends RelativeLayout {
         disableTouchForTime(waitTime);
     }
 
-/*
-    private void updateScore(SCORE_TYPE type) {
-        final int K1 = 100;
-        int v = 0;
-        switch (type)
-        {
-            case START:
-                score = 100;
-                dejaAligned = 0;
-                break;
-            case SHIFT:
-                v = - (int) (100/(float) (params.size*params.size));
-                if (score >= -v)
-                    score += v;
-                else{
-                    v = - score;
+    /*
+        private void updateScore(SCORE_TYPE type) {
+            final int K1 = 100;
+            int v = 0;
+            switch (type)
+            {
+                case START:
+                    score = 100;
+                    dejaAligned = 0;
+                    break;
+                case SHIFT:
+                    v = - (int) (100/(float) (params.size*params.size));
+                    if (score >= -v)
+                        score += v;
+                    else{
+                        v = - score;
+                        score = 0;
+                    }
+
+                    break;
+                case ALIGN:
+                    v = 100;
+                    score+=v;
+                    break;
+                case SOLVED:
+                    v =(int) ((params.size*100)/Math.pow(2,(TimerHandler.getTimePlaying()/(float)30000)));
+                    score+=v;
+                    break;
+                case CLEAR:
                     score = 0;
+                    dejaAligned = 0;
+                    break;
+                default:
+            }
+            if (v!=0) {
+                if (v>0){
+             //       activity.scoreAddView.setTextColor(Color.GREEN);
+             //       activity.scoreAddView.setText("+"+String.valueOf(v));
                 }
-
-                break;
-            case ALIGN:
-                v = 100;
-                score+=v;
-                break;
-            case SOLVED:
-                v =(int) ((params.size*100)/Math.pow(2,(TimerHandler.getTimePlaying()/(float)30000)));
-                score+=v;
-                break;
-            case CLEAR:
-                score = 0;
-                dejaAligned = 0;
-                break;
-            default:
-        }
-        if (v!=0) {
-            if (v>0){
-         //       activity.scoreAddView.setTextColor(Color.GREEN);
-         //       activity.scoreAddView.setText("+"+String.valueOf(v));
+                else{
+              //      activity.scoreAddView.setTextColor(Color.RED);
+              //      activity.scoreAddView.setText(String.valueOf(v));
+                }
+             //   activity.scoreAddView.setAlpha(1f);
+             //   activity.scoreAddView.animate().setDuration(300).alpha(0f).start();
             }
-            else{
-          //      activity.scoreAddView.setTextColor(Color.RED);
-          //      activity.scoreAddView.setText(String.valueOf(v));
-            }
-         //   activity.scoreAddView.setAlpha(1f);
-         //   activity.scoreAddView.animate().setDuration(300).alpha(0f).start();
-        }
 
-    }
-*/
+        }
+    */
     public void solvedAnimation() {
         Random r = new Random();
         boardDrawing.setRandomPosMovementOutside(r, false, GameTime.getTime(), GamePreferences.animationDuration);
@@ -234,8 +225,7 @@ public class BoardView extends RelativeLayout {
         disableTouchForTime(GamePreferences.animationDuration);
     }
 
-    public void firstShiftRandom()
-    {
+    public void firstShiftRandom() {
         do {
             squareBoard.shiftRandom();
         } while (isSolved());
@@ -260,8 +250,7 @@ public class BoardView extends RelativeLayout {
         invalidate();
     }
 
-    public void disableTouchForTime(int duration)
-    {
+    public void disableTouchForTime(int duration) {
         if (activity.buttonTouchEnabled()) {
             disableTouch();
             activity.disableButtonTouch();
@@ -288,4 +277,6 @@ public class BoardView extends RelativeLayout {
     public void enableTouch() {
         this.setOnTouchListener(onTouchListener);
     }
+
+ //   public enum SCORE_TYPE {SHIFT, ALIGN, SOLVED, CLEAR, START}
 }

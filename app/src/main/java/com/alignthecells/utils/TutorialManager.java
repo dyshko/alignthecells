@@ -12,20 +12,18 @@ public class TutorialManager {
 
     static private boolean previousTutorialFinished = true;
     static private int currentTutorial = 0;
-  //  static private ShowcaseView scView;
+    //  static private ShowcaseView scView;
 
     static private View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-    //        scView.hide();
+            //        scView.hide();
             previousTutorialFinished = true;
         }
     };
 
-    public static void startNextTutorial(final Activity instance, final View v)
-    {
-        if (!previousTutorialFinished)
-        {
+    public static void startNextTutorial(final Activity instance, final View v) {
+        if (!previousTutorialFinished) {
             Handler h = new Handler();
             h.postDelayed(new Runnable() {
                 @Override
@@ -34,9 +32,8 @@ public class TutorialManager {
                 }
             }, 1000);
         }
-        if (GamePreferences.firstRun && previousTutorialFinished){
-            switch (currentTutorial)
-            {
+        if (GamePreferences.firstRun && previousTutorialFinished) {
+            switch (currentTutorial) {
                 case 0: {
       /*              scView = new ShowcaseView.Builder(instance)
                             .setTarget(new ViewTarget(v))
@@ -45,8 +42,9 @@ public class TutorialManager {
                             .setOnClickListener(listener)
                             .hideOnTouchOutside()
                             .build();*/
-                    currentTutorial+=1;
-                }break;
+                    currentTutorial += 1;
+                }
+                break;
                 case 1: {
        /*             scView = new ShowcaseView.Builder(instance)
                             .setTarget(new ViewTarget(v))
@@ -55,7 +53,8 @@ public class TutorialManager {
                             .setOnClickListener(listener)
                             .hideOnTouchOutside()
                             .build();
-               */ }
+               */
+                }
                 break;
                 default:
             }

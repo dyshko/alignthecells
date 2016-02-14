@@ -8,8 +8,7 @@ import android.os.SystemClock;
  */
 public class GameTime {
 
-    public static long getTime()
-    {
+    public static long getTime() {
         return SystemClock.elapsedRealtime();
     }
 

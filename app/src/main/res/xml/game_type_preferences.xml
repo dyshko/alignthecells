@@ -8,15 +8,14 @@
         android:entries="@array/sizeArray"
         android:entryValues="@array/sizeValues"
         android:key="board_size"
-        android:summary="Select the size of the board"
-        android:title="Size" />
+        android:title="@string/size_text_2" />
 
     <ListPreference
         android:defaultValue="0"
         android:entries="@array/gameTypeArray"
         android:entryValues="@array/gameTypeValues"
         android:key="game_type"
-        android:summary="For advanced players only"
-        android:title="Game mode" />
+        android:summary="@string/type_text_1"
+        android:title="@string/type_text_2" />
 
 </PreferenceScreen>

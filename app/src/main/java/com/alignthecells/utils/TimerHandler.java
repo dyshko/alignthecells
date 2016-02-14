@@ -1,7 +1,10 @@
 package com.alignthecells.utils;
 
+import android.content.Context;
 import android.os.Handler;
 import android.os.SystemClock;
+
+import com.alignthecells.R;
 
 /**
  * Created by Sergey on 8/28/2015.
@@ -9,12 +12,10 @@ import android.os.SystemClock;
  */
 public class TimerHandler {
 
-    private Handler mHandler = new Handler();
-
-//    private TextView mTimeLabel;
-
     private static long deltaTime;
 
+//    private TextView mTimeLabel;
+    private Handler mHandler = new Handler();
     private long lastTime;
 
     private boolean isRunning = false;
@@ -24,7 +25,7 @@ public class TimerHandler {
             long t = SystemClock.elapsedRealtime();
             deltaTime += t - lastTime;
             lastTime = t;
-    //        mTimeLabel.setText();
+            //        mTimeLabel.setText();
             mHandler.postDelayed(this, 1000);
         }
     };
@@ -48,7 +49,7 @@ public class TimerHandler {
 
     public void reset() {
         stop();
- //       mTimeLabel.setText(R.string.starting_timer_value);
+        //       mTimeLabel.setText(R.string.starting_timer_value);
     }
 
     public void pause() {
@@ -63,8 +64,8 @@ public class TimerHandler {
         }
     }
 
-    public String getText() {
+    public String getText(Context context) {
         int seconds = (int) deltaTime / 1000;
-        return Integer.toString(seconds)+" sec";
+        return Integer.toString(seconds) + context.getString(R.string.sec);
     }
 }

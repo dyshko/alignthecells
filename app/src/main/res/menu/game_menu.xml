@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/menu_game_mode"
-        android:title="Game mode" />
+        android:title="@string/menu_t1" />
 
     <item
         android:id="@+id/menu_info"

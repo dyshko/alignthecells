@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Align the cells</string>
+    <string name="t1_text">
+        Выравнивайте ячейки одного цвета в ряды или колонки.
+    </string>
+    <string name="t2_text">
+        Чтобы сдвинуть ряд или колонку - проведите пальцем в нужном направлении
+    </string>
+    <string name="preference_button_text">Настройки</string>
+    <string name="info_button_text">Как играть</string>
+    <string name="shuffle_button_text">Перемешать</string>
+    <string name="about_text">Разработано Сергеем Дышко. Мой адресс:
+        <a href="mailto:s.v.dyshko@gmail.com?subject=Align the cells">s.v.dyshko@gmail.com</a></string>
+    <string name="touch_text">Коснитесь, чтобы начать</string>
+    <string name="hint_text">Выравнивайте ячейки одного цвета в ряды или колонки (коснитесть, чтобы убрать подсказку)</string>
+    <string name="about_t1">О приложении</string>
+    <string name="rate_text">Оцените</string>
+    <string name="anim_text_1">Анимация</string>
+    <string name="sound_text_2">Звук</string>
+    <string name="form_text_2">Форма ячеек</string>
+    <string name="size_text_2">Количество ячеек</string>
+    <string name="type_text_1">Только для опытных игроков</string>
+    <string name="type_text_2">Режим игры</string>
+    <string name="menu_t1">Тип игры</string>
+    <string name="win_t1">"Решено за "</string>
+    <string name="win_t2">Поздравляем!</string>
+    <string name="win_t3">" и "</string>
+    <string name="win_t4">" ходов!"</string>
+    <string name="win_t5">ОК</string>
+    <string name="exit1">Покинуть игру?</string>
+    <string name="no">Нет</string>
+    <string name="yes">Да</string>
+    <string name="sec">" сек"</string>
+</resources>

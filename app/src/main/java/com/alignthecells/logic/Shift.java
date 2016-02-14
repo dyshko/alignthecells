@@ -8,25 +8,17 @@ import java.util.Random;
  */
 public class Shift {
 
-    public enum TYPE {ROW, COLUMN}
-
-    public enum OPTION {SIMPLE, CROSSED, CYCLIC}
-
-    public enum DIRECTION {FORWARD, BACKWARD}
-
     public TYPE shiftType;
     public OPTION shiftOption;
     public int position1;
     public int position2;
     public DIRECTION direction;
-
     public Shift(TYPE shiftType, int position1, DIRECTION direction) {
         this.shiftOption = OPTION.SIMPLE;
         this.shiftType = shiftType;
         this.position1 = position1;
         this.direction = direction;
     }
-
     public Shift(TYPE shiftType, OPTION shiftOption, int position1, int position2, DIRECTION direction) {
         this.shiftOption = shiftOption;
         this.shiftType = shiftType;
@@ -89,6 +81,12 @@ public class Shift {
         else return null;
         return new Shift(simpleShift.shiftType, OPTION.CYCLIC, simpleShift.position1, p, simpleShift.direction);
     }
+
+    public enum TYPE {ROW, COLUMN}
+
+    public enum OPTION {SIMPLE, CROSSED, CYCLIC}
+
+    public enum DIRECTION {FORWARD, BACKWARD}
 
 
 }

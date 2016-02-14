@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="cellImageArray">
-        <item> Square </item>
-        <item> Rounded square </item>
-        <item> Circle </item>
+        <item> Квадрат </item>
+        <item> Закругленный квадрат </item>
+        <item> Круг </item>
     </string-array>
 
     <string-array name="cellImageValues">
@@ -27,10 +27,10 @@
         <item>7</item>
     </string-array>
     <string-array name="gameTypeArray">
-        <item> Simple (Torus) </item>
-        <item> Mode 1 (Klein) </item>
-        <item> Mode 2 (Sphere) </item>
-        <item> Mode 3 (Projective) </item>
+        <item> Простой (Тор) </item>
+        <item> Режим 1 (Бутлка Клейна) </item>
+        <item> Режим 2 (Сфера) </item>
+        <item> Режим 3 (Проэктивный) </item>
         <!--  <item> Klein Bottle* </item>
           <item> Sphere* </item>
           <item> Double direct </item>
