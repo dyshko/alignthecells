@@ -8,7 +8,7 @@
     </string>
     <string name="preference_button_text">Налаштування</string>
     <string name="info_button_text">Як грати</string>
-    <string name="shuffle_button_text">Перемішати</string>
+    <string name="dummy_text"> </string>
     <string name="about_text">Разроблено Сергієм Дишко. Моя адреса:
         <a href="mailto:s.v.dyshko@gmail.com?subject=Align the cells">s.v.dyshko@gmail.com</a></string>
     <string name="touch_text">Торкніться, щоб почати гру</string>
@@ -31,4 +31,6 @@
     <string name="no">Ні</string>
     <string name="yes">Так</string>
     <string name="sec">" сек"</string>
+    <string name="link">https://play.google.com/store/apps/details?id=com.alignthecells</string>
+    <string name="share_t1">Поділитися</string>
 </resources>

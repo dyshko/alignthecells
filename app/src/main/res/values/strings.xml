@@ -8,7 +8,7 @@
     </string>
     <string name="preference_button_text">Settings</string>
     <string name="info_button_text">How to play</string>
-    <string name="shuffle_button_text">Shuffle</string>
+    <string name="dummy_text"> </string>
     <string name="about_text">Created by Serhii Dyshko. Contact me
         <a href="mailto:s.v.dyshko@gmail.com?subject=Align the cells">s.v.dyshko@gmail.com</a></string>
     <string name="touch_text">Touch to play</string>
@@ -31,4 +31,6 @@
     <string name="no">No</string>
     <string name="yes">Yes</string>
     <string name="sec">" sec"</string>
+    <string name="link">https://play.google.com/store/apps/details?id=com.alignthecells</string>
+    <string name="share_t1">Share</string>
 </resources>

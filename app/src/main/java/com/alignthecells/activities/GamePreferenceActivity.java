@@ -21,7 +21,7 @@ public class GamePreferenceActivity extends PreferenceActivity {
                 public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
                                                       String key) {
                     SquareBoardGameActivity activity = SquareBoardGameActivity.instance;
-                    if (activity != null) {
+                    if ((activity != null)&&(!(key.equals("sound_enabled")))) {
                         activity.recreate();
                         GamePreferences.updateValues(sharedPreferences);
                     }

@@ -15,34 +15,27 @@ public class SoundManager {
 
     private static MediaPlayer solvedSound = null;
 
-    private static boolean soundEnabled = true;
-
     private static SoundManager instance = null;
 
-    private SoundManager(Context context, boolean soundEnabled) {
+    private SoundManager(Context context) {
         clickSound = MediaPlayer.create(context, R.raw.click);
         solvedSound = MediaPlayer.create(context, R.raw.solved);
-        SoundManager.soundEnabled = soundEnabled;
     }
 
-    public static void initialize(Context context, boolean soundEnabled) {
+    public static void initialize(Context context) {
         if (instance == null)
-            instance = new SoundManager(context, soundEnabled);
+            instance = new SoundManager(context);
     }
 
     public static void playClickSound() {
-        if (soundEnabled && (instance != null)) {
+        if (GamePreferences.soundEnabled && (instance != null)) {
             clickSound.start();
         }
     }
 
     public static void playSolvedSound() {
-        if (soundEnabled && (instance != null)) {
+        if (GamePreferences.soundEnabled && (instance != null)) {
             solvedSound.start();
         }
-    }
-
-    public static void setSound(boolean sound) {
-        SoundManager.soundEnabled = sound;
     }
 }

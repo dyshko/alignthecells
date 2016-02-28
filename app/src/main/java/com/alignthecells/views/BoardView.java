@@ -128,7 +128,7 @@ public class BoardView extends RelativeLayout {
     }
 
     public void shift(Shift initShift) {
-        int waitTime = GamePreferences.animationDuration;
+        int waitTime = GamePreferences.NORMAL_ANIMATION_DURATION;
         shifts += 1;
 
         //    activity.movesTextView.setText(String.valueOf(shifts));
@@ -158,59 +158,10 @@ public class BoardView extends RelativeLayout {
         disableTouchForTime(waitTime);
     }
 
-    /*
-        private void updateScore(SCORE_TYPE type) {
-            final int K1 = 100;
-            int v = 0;
-            switch (type)
-            {
-                case START:
-                    score = 100;
-                    dejaAligned = 0;
-                    break;
-                case SHIFT:
-                    v = - (int) (100/(float) (params.size*params.size));
-                    if (score >= -v)
-                        score += v;
-                    else{
-                        v = - score;
-                        score = 0;
-                    }
-
-                    break;
-                case ALIGN:
-                    v = 100;
-                    score+=v;
-                    break;
-                case SOLVED:
-                    v =(int) ((params.size*100)/Math.pow(2,(TimerHandler.getTimePlaying()/(float)30000)));
-                    score+=v;
-                    break;
-                case CLEAR:
-                    score = 0;
-                    dejaAligned = 0;
-                    break;
-                default:
-            }
-            if (v!=0) {
-                if (v>0){
-             //       activity.scoreAddView.setTextColor(Color.GREEN);
-             //       activity.scoreAddView.setText("+"+String.valueOf(v));
-                }
-                else{
-              //      activity.scoreAddView.setTextColor(Color.RED);
-              //      activity.scoreAddView.setText(String.valueOf(v));
-                }
-             //   activity.scoreAddView.setAlpha(1f);
-             //   activity.scoreAddView.animate().setDuration(300).alpha(0f).start();
-            }
-
-        }
-    */
     public void solvedAnimation() {
         Random r = new Random();
-        boardDrawing.setRandomPosMovementOutside(r, false, GameTime.getTime(), GamePreferences.animationDuration);
-        disableTouchForTime(GamePreferences.animationDuration);
+        boardDrawing.setRandomPosMovementOutside(r, false, GameTime.getTime(), GamePreferences.NORMAL_ANIMATION_DURATION);
+        disableTouchForTime(GamePreferences.NORMAL_ANIMATION_DURATION);
     }
 
     public void shiftBoardRandom() {
@@ -221,8 +172,8 @@ public class BoardView extends RelativeLayout {
         shifts = 0;
         //updateScore(SCORE_TYPE.START);
 
-        boardDrawing.setupShift(squareBoard, GameTime.getTime(), GamePreferences.animationDuration);
-        disableTouchForTime(GamePreferences.animationDuration);
+        boardDrawing.setupShift(squareBoard, GameTime.getTime(), GamePreferences.NORMAL_ANIMATION_DURATION);
+        disableTouchForTime(GamePreferences.NORMAL_ANIMATION_DURATION);
     }
 
     public void firstShiftRandom() {
@@ -235,8 +186,8 @@ public class BoardView extends RelativeLayout {
 
         Random r = new Random();
         boardDrawing.setRandomPosMovementOutside(r, true, 0, 0);
-        boardDrawing.setupShift(squareBoard, GameTime.getTime(), GamePreferences.animationDuration);
-        disableTouchForTime(GamePreferences.animationDuration);
+        boardDrawing.setupShift(squareBoard, GameTime.getTime(), GamePreferences.NORMAL_ANIMATION_DURATION);
+        disableTouchForTime(GamePreferences.NORMAL_ANIMATION_DURATION);
     }
 
     public int boardIndexToColor(int val) {

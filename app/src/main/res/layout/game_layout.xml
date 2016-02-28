@@ -3,55 +3,25 @@
     android:id="@+id/fullscreen_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
-    android:padding="10dp"
+    android:background="@drawable/background_tile_xml"
     tools:context=".FullscreenActivity">
-
-    <!--   <ImageButton
-           android:id="@+id/preference_button"
-           android:layout_width="40pt"
-           android:layout_height="40pt"
-           android:layout_alignParentBottom="true"
-           android:layout_alignParentLeft="true"
-           android:layout_alignParentStart="true"
-           android:background="@drawable/system_preferences"
-           android:contentDescription="@string/preference_button_text" />
-
-       <ImageButton
-           android:id="@+id/intro_info_button"
-           android:layout_width="40pt"
-           android:layout_height="40pt"
-           android:layout_alignParentBottom="true"
-           android:layout_centerHorizontal="true"
-           android:background="@drawable/info"
-           android:contentDescription="@string/tutorial_text" /> -->
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/space_above_game_area">
-        <!--
-        <com.square.views.MyTextView
-            android:id="@+id/gameTypeTextView"
-            android:text="Game Type"
-            android:textColor="@color/text_color"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_gravity="center"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" /> -->
+        android:layout_alignParentTop="true"
+        android:padding="5dp">
 
-        <!--<ImageButton
-            android:id="@+id/game_type_button"
-            android:layout_width="30pt"
-            android:layout_height="30pt"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/game_type"
-            android:contentDescription=""
-            android:layout_centerVertical="true"/> -->
+        <ImageButton
+            android:id="@+id/volume_button"
+            android:layout_width="@dimen/menu_button_size"
+            android:layout_height="@dimen/menu_button_size"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/reset_button"
+            android:layout_toStartOf="@+id/reset_button"
+            android:background="@drawable/volume_on"
+            android:contentDescription="@string/dummy_text" />
 
         <ImageButton
             android:id="@+id/reset_button"
@@ -61,7 +31,7 @@
             android:layout_toLeftOf="@+id/options_button"
             android:layout_toStartOf="@+id/options_button"
             android:background="@drawable/refresh"
-            android:contentDescription="@string/shuffle_button_text" />
+            android:contentDescription="@string/dummy_text" />
 
         <ImageButton
             android:id="@+id/options_button"
@@ -71,75 +41,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:background="@drawable/info"
-            android:contentDescription="@string/shuffle_button_text" />
-        <!--    android:layout_alignTop="@+id/timer_view"-->
-        <!--     <com.square.views.MyTextView
-                 android:id="@+id/highscore"
-                 android:text="Highscore:"
-                 android:textColor="@color/text_color"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:textAppearance="?android:attr/textAppearanceLarge"
-                 android:layout_gravity="center"
-                 android:layout_below="@+id/gameTypeTextView"
-                 android:layout_toLeftOf="@+id/highscore_value"/>
-
-             <com.square.views.MyTextView
-                 android:id="@+id/highscore_value"
-                 android:text="0"
-                 android:textColor="@color/text_color"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:textAppearance="?android:attr/textAppearanceLarge"
-                 android:layout_gravity="center"
-                 android:layout_below="@+id/gameTypeTextView"
-                 android:layout_alignParentRight="true"
-                 android:layout_alignParentEnd="true"/> -->
-        <!--
-        <com.square.views.MyTextView
-            android:id="@+id/moves_view"
-            android:text="0"
-            android:textColor="@color/text_color"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_gravity="center"
-            android:layout_below="@+id/timer_view"
-            android:layout_toRightOf="@+id/score_text_view"
-            android:layout_toEndOf="@+id/score_text_view" />
-
-        <com.square.views.MyTextView
-            android:id="@+id/score_text_view"
-            android:text="MOVES: "
-            android:textColor="@color/text_color"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_below="@+id/timer_text_view"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <com.square.views.MyTextView
-            android:id="@+id/timer_view"
-            android:text="@string/starting_timer_value"
-            android:textColor="@color/text_color"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/moves_view"
-            android:layout_alignStart="@+id/moves_view" />
-
-        <com.square.views.MyTextView
-            android:id="@+id/timer_text_view"
-            android:text="TIME: "
-            android:textColor="@color/text_color"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_gravity="left|center_vertical"
-            android:layout_alignParentLeft="true" /> -->
-
+            android:contentDescription="@string/dummy_text" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -147,27 +49,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"></RelativeLayout>
+        android:layout_centerVertical="true"/>
 
-    <Space
-        android:id="@+id/space_above_game_area"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_above="@+id/game_area" />
 
-    <Space
-        android:id="@+id/space_below_game_area"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_below="@+id/game_area" />
-    <!--
-      <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/space_below_game_area"
-            android:layout_alignParentRight="true"
-            android:id="@+id/lower_box">
-        </RelativeLayout>-->
     <com.alignthecells.views.MyTextView
         android:id="@+id/hint"
         android:layout_width="match_parent"

@@ -3,16 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="animation_enabled"
-        android:title="@string/anim_text_1" />
-
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="sound_enabled"
-        android:title="@string/sound_text_2" />
-
     <ListPreference
         android:defaultValue="1"
         android:entries="@array/cellImageArray"
@@ -25,16 +15,25 @@
         android:title="@string/rate_text">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="https://play.google.com/store/apps/details?id=com.alignthecells" />
+            android:data="@string/link" />
     </Preference>
 
+    <!--
     <Preference
+        android:key="share"
+        android:title="@string/share_t1">
+        <intent
+            android:action="android.intent.action.SENDTO"
+            android:data="@string/link" />
+    </Preference> -->
+
+    <!--<Preference
         android:key="about"
         android:title="@string/about_t1">
         <intent
             android:action="android.intent.action.MAIN"
             android:targetClass="com.alignthecells.activities.AboutActivity"
             android:targetPackage="com.alignthecells" />
-    </Preference>
+    </Preference>-->
 
 </PreferenceScreen>

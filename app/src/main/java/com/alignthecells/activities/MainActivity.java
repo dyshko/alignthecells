@@ -16,7 +16,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         GamePreferences.updateValues(getApplicationContext());
-        SoundManager.initialize(getApplicationContext(), GamePreferences.soundEnabled);
+        SoundManager.initialize(getApplicationContext());
     }
 
     @Override

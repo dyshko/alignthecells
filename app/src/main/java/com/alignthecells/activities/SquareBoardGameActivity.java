@@ -3,8 +3,11 @@ package com.alignthecells.activities;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -38,6 +41,7 @@ public class SquareBoardGameActivity extends MainActivity {
     private BoardView boardView;
     private ImageButton shuffleButton;
     private ImageButton optionsButton;
+    private ImageButton volumeButton;
     //    private ImageButton gameTypeButton;
     private PopupMenu popup;
 
@@ -72,6 +76,8 @@ public class SquareBoardGameActivity extends MainActivity {
 
         createOptionsButton();
 
+        createVolumeButton();
+
 //        createGameTypeButton();
 
         initTimerHandler();
@@ -79,7 +85,6 @@ public class SquareBoardGameActivity extends MainActivity {
         hintView = (MyTextView) findViewById(R.id.hint);
         hintView.setVisibility(View.GONE);
         hintView.setEnabled(false);
-
 
         contentView.post(new Runnable() {
             @Override
@@ -125,6 +130,26 @@ public class SquareBoardGameActivity extends MainActivity {
         shuffleButton.setEnabled(false);
     }
 
+    private void updateImageVolumeButton(){
+        volumeButton = (ImageButton) findViewById(R.id.volume_button);
+        int v;
+        if (GamePreferences.soundEnabled) v = R.drawable.volume_on;
+        else v = R.drawable.volume_off;
+        volumeButton.setBackgroundDrawable(getResources().getDrawable(v));
+    }
+
+    private void createVolumeButton(){
+        volumeButton = (ImageButton) findViewById(R.id.volume_button);
+        updateImageVolumeButton();
+        volumeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GamePreferences.setSoundEnabled(getBaseContext(), !(GamePreferences.soundEnabled));
+                updateImageVolumeButton();
+            }
+        });
+    }
+
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -155,7 +180,7 @@ public class SquareBoardGameActivity extends MainActivity {
                                 public void run() {
                                     instance.finish();
                                 }
-                            }, (long) (1.5f * GamePreferences.animationDuration));
+                            }, (long) (1.5f * GamePreferences.NORMAL_ANIMATION_DURATION));
                         } else instance.finish();
                     }
                 });

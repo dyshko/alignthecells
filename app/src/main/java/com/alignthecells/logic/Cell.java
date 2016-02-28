@@ -40,6 +40,7 @@ public class Cell {
     private int sideLength;
     private Bitmap bitmap;
     private Paint paint;
+
     public Cell(Context context, int color, int value, int sideLength) {
         this.color = color;
         this.value = value;
